@@ -1,0 +1,3 @@
+# Transient state
+*.bak
+sync.log

@@ -1,0 +1,64 @@
+{
+  "env": {
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "256000",
+    "CLAUDE_CODE_EFFORT_LEVEL": "max"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(bazel *)",
+      "Bash(gh *)",
+      "Bash(npm *)",
+      "Bash(yarn *)",
+      "Bash(taz *)",
+      "Bash(rg *)",
+      "Bash(otter *)",
+      "Bash(ls *)",
+      "Bash(python *)",
+      "Bash(java *)",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Read",
+      "Write",
+      "WebFetch",
+      "WebSearch",
+      "mcp__otter__*"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/otter agent-hook --agent claude-code --hook-event PreToolUse"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/otter agent-hook --agent claude-code --hook-event PostToolUse"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/otter agent-hook --agent claude-code --hook-event SessionStart"
+          }
+        ]
+      }
+    ]
+  }
+}
